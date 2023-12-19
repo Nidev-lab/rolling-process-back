@@ -19,4 +19,26 @@ const createUser = async (req, res) => {
   }
 };
 
-module.exports = { createUser, findUser };
+const editUser = async (req, res) => {
+  try {
+    const response = await UserSchema.findByIdAndUpdate({
+      _id: req.params.id,
+    }, req.body, { new: true });
+    res.status(200).send(response);
+  } catch (error) {
+    res.status(400).send({ message: error.message, id: req.params.id });
+  }
+};
+
+const deteleUser = async (req, res) => {
+  try {
+    const response = await UserSchema.findByIdAndDelete(req.params.id);
+    res.status(200).send(response);
+  } catch (error) {
+    res.status(400).send({ message: error.message, id: req.params.id });
+  }
+};
+
+module.exports = {
+  createUser, findUser, editUser, deteleUser,
+};

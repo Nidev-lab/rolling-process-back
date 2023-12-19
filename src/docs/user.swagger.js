@@ -1,10 +1,3 @@
-const express = require('express');
-const swaggerDocs = require('../docs/user.swagger');
-const {
-  createUser, findUser, deteleUser, editUser,
-} = require('../controllers/user.controller');
-
-const router = express.Router();
 /**
  * @swagger
  * components:
@@ -127,11 +120,3 @@ const router = express.Router();
  *      500:
  *        description: Some server error
 */
-
-router
-  .get('/findAll', findUser)
-  .post('/create', createUser)
-  .put('/edit/:id', editUser)
-  .delete('/delete/:id', deteleUser);
-
-module.exports = { router, swaggerDocs };
