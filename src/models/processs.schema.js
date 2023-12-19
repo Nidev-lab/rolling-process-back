@@ -21,6 +21,4 @@ const processDetailSchema = new mongoose.Schema({
   details: [detailSchema],
 });
 
-const ProcessDetail = mongoose.model('ProcessDetail', processDetailSchema);
-
-module.exports = ProcessDetail;
+module.exports = mongoose.model('ProcessDetail', processDetailSchema);
