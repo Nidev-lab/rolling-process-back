@@ -1,6 +1,6 @@
 /* eslint-disable no-console, import/no-extraneous-dependencies */
+
 const cookieParser = require('cookie-parser');
-const createError = require('http-errors');
 const mongoose = require('mongoose');
 const express = require('express');
 const morgan = require('morgan');
@@ -26,16 +26,20 @@ app.use(morgan('dev'));
 app.use(cookieParser());
 
 // Routes
-app.use('/v1/process-detail', require('./src/routes/processDetail'));
+app.use('/v1/process-detail', require('./src/routes/process.routes'));
+app.use('/v1/user', require('./src/routes/user.routes'));
 
-app.use((req, res, next) => next(createError(404)));
-app.use((err, req, res) => {
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+app.use('/*', (req, res) => res.send('Not found'));
 
-  res.status(err.status || 500);
-  res.render('error');
-});
+// TODO i18n: refator code on case 404 and response in this case
+
+/* app.use((req, res, next) => next(createError(404))); */
+/*  app.use((err, req, res) => {
+    res.locals.message = err.message;
+    res.locals.error = req.app.get('env') === 'development' ? err : {};
+    res.status(err.status || 500);
+    res.render('error');
+    }); */
 
 // Server
 app.listen(port, () => console.log('Server running in port', port));

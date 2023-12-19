@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 const swaggerJSDoc = require('swagger-jsdoc');
 const swaggerUI = require('swagger-ui-express');
 

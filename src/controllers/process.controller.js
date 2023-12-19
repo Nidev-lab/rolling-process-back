@@ -1,4 +1,4 @@
-const ProcessDetail = require('../models/processDetail');
+const ProcessDetail = require('../models/processs.schema');
 
 const findProcessDetail = async (req, res) => {
   try {
