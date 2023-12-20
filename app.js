@@ -7,7 +7,7 @@ const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
 
-const { swaggerSpec } = require('./src/swagger');
+const { swaggerSpec } = require('./src/config/swagger');
 require('dotenv').config();
 
 // Database
