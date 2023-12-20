@@ -3,7 +3,7 @@ const {
   postProcessDetail,
   getAllProcessDetail,
   getProcessDetail,
-} = require("../controllers/processDetail");
+} = require("../../controllers/processDetail.controller");
 
 const router = express.Router();
 

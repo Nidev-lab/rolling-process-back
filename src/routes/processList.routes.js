@@ -2,7 +2,7 @@ const express = require("express");
 const {
   postProcessList,
   getProcessList,
-} = require("../controllers/processList");
+} = require("../../controllers/processList.controller");
 
 const router = express.Router();
 

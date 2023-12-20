@@ -6,8 +6,8 @@ const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const cors = require("cors");
 
-const processDetailRouter = require("./routes/processDetail");
-const processListRouter = require("./routes/processList");
+const processDetailRouter = require("./src/routes/processDetail.routes");
+const processListRouter = require("./src/routes/processList.routes");
 
 const app = express();
 

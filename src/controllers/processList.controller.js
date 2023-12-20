@@ -1,4 +1,4 @@
-const ProcessList = require("../models/processList");
+const ProcessList = require("../src/models/processList.schema");
 
 const postProcessList = async (req, res) => {
   try {
