@@ -8,9 +8,6 @@ const morgan = require('morgan');
 const cors = require('cors');
 const path = require('path');
 
-const processRouter = require('./src/routes/process.routes');
-const { router: userRouter, swaggerDocs } = require('./src/routes/user.routes');
-
 const { swaggerSpec } = require('./src/swagger');
 require('dotenv').config();
 
@@ -21,8 +18,8 @@ mongoose.connect(process.env.DB_MONGO);
 const app = express();
 const port = process.env.PORT || 8080;
 
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "jade");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -34,24 +31,13 @@ app.use(morgan('dev'));
 app.use(cookieParser());
 
 // Routes
-app.use('/docs', swaggerUI.serve, swaggerUI.setup(swaggerSpec, swaggerDocs.router));
+app.use('/docs', swaggerUI.serve, swaggerUI.setup(swaggerSpec));
 
-app.use('/v1/process-detail', processRouter);
-app.use('/v1/user', userRouter);
+app.use("/v1/process-detail", require('./src/routes/processDetail.routes'));
+app.use("/v1/process-list", require('./src/routes/processList.routes'));
+app.use('/v1/user', require('./src/routes/user.routes'));
 
 app.use('/*', (req, res) => res.send({ error: { message: 'Not found', stateCode: 404 } }));
-
-// TODO i18n: refactor code in case stateCode 404 and response in this case
-
-/* app.use((req, res, next) => next(createError(404))); */
-
-/* app.use((err, req, res) => {
-    res.locals.message = err.message;
-    res.locals.error = req.app.get('env') === 'development' ? err : {};
-    res.status(err.status || 500);
-    res.render('error');
-    });
-*/
 
 // Server
 app.listen(port, () => console.log('Server running in port', port));
