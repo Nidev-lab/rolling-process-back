@@ -1,5 +1,4 @@
 const express = require('express');
-const swaggerDocs = require('../docs/user.swagger');
 const {
   createUser, findUser, deteleUser, editUser,
 } = require('../controllers/user.controller');
@@ -134,4 +133,4 @@ router
   .put('/edit/:id', editUser)
   .delete('/delete/:id', deteleUser);
 
-module.exports = { router, swaggerDocs };
+module.exports = router;
