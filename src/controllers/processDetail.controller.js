@@ -15,6 +15,7 @@ const postProcessDetail = async (req, res) => {
     res.status(400).json({ message: error.message });
   }
 };
+
 const getAllProcessDetail = async (req, res) => {
   try {
     const processes = await ProcessDetail.find({});
@@ -23,7 +24,6 @@ const getAllProcessDetail = async (req, res) => {
     }
     return res.status(200).json(processes);
   } catch (error) {
-    console.error(error.message);
     res.status(500).json("Server error");
   }
 };
@@ -38,8 +38,8 @@ const getProcessDetail = async (req, res) => {
     }
     return res.status(200).json(process);
   } catch (error) {
-    console.error(error.message);
     res.status(500).json("Server error");
   }
 };
+
 module.exports = { postProcessDetail, getAllProcessDetail, getProcessDetail };

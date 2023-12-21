@@ -23,8 +23,8 @@ const getProcessList = async (req, res) => {
     const processes = await ProcessList.find({});
     return res.status(200).json(processes);
   } catch (error) {
-    console.error(error.message);
-    res.status(500).json("Server error");
+    return res.status(500).json("Server error");
   }
 };
+
 module.exports = { postProcessList, getProcessList };
