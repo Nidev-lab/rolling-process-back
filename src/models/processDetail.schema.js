@@ -11,6 +11,7 @@ const detailSchema = new mongoose.Schema({
     required: true,
   },
 });
+
 const answersSchema = new mongoose.Schema({
   type: {
     type: String,
