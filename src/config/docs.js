@@ -6,13 +6,13 @@ const doc = {
     title: 'Rolling-Process V1 Docs',
     description: 'This is docs for repeet test with endpoint and reference for front',
   },
-  host: 'http://localhost:8080',
+  host: '127.0.0.1:8080',
   tags: [
     {
       name: 'Users',
     },
     {
-      name: 'Process',
+      name: 'Process Details',
     },
   ],
 };

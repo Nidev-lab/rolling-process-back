@@ -5,40 +5,24 @@
     "title": "Rolling-Process V1 Docs",
     "description": "This is docs for repeet test with endpoint and reference for front"
   },
-  "host": "http://localhost:8080",
+  "host": "127.0.0.1:8080",
   "basePath": "/",
   "tags": [
     {
       "name": "Users"
     },
     {
-      "name": "Process"
+      "name": "Process Details"
     }
   ],
   "schemes": [
     "http"
   ],
   "paths": {
-    "v1/process-detail/findAll": {
-      "get": {
-        "tags": [
-          "Process"
-        ],
-        "description": "",
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request"
-          }
-        }
-      }
-    },
-    "v1/process-detail/create": {
+    "/v1/process-detail/create": {
       "post": {
         "tags": [
-          "Process"
+          "Process Details"
         ],
         "description": "",
         "parameters": [
@@ -52,6 +36,9 @@
                   "example": "any"
                 },
                 "details": {
+                  "example": "any"
+                },
+                "answers": {
                   "example": "any"
                 }
               }
@@ -68,7 +55,111 @@
         }
       }
     },
-    "v1/user/findAll": {
+    "/v1/process-detail/findAll": {
+      "get": {
+        "tags": [
+          "Process Details"
+        ],
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/v1/process-detail/{id}": {
+      "get": {
+        "tags": [
+          "Process Details"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/v1/process-list/findAll": {
+      "get": {
+        "tags": [
+          "Process Details"
+        ],
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/v1/process-list/create": {
+      "post": {
+        "tags": [
+          "Process Details"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "processId": {
+                  "example": "any"
+                },
+                "title": {
+                  "example": "any"
+                },
+                "description": {
+                  "example": "any"
+                },
+                "assets": {
+                  "example": "any"
+                },
+                "area": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/v1/user/findAll": {
       "get": {
         "tags": [
           "Users"
@@ -84,7 +175,7 @@
         }
       }
     },
-    "v1/user/create": {
+    "/v1/user/create": {
       "post": {
         "tags": [
           "Users"
@@ -100,7 +191,7 @@
         }
       }
     },
-    "v1/user/edit/{id}": {
+    "/v1/user/edit/{id}": {
       "put": {
         "tags": [
           "Users"
@@ -124,7 +215,7 @@
         }
       }
     },
-    "v1/user/delete/{id}": {
+    "/v1/user/delete/{id}": {
       "delete": {
         "tags": [
           "Users"
