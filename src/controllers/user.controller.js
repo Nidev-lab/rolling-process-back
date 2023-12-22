@@ -1,6 +1,7 @@
 const UserSchema = require('../models/user.schema');
 
 const findUser = async (req, res) => {
+  // #swagger.tags = ['Users']
   try {
     const response = await UserSchema.find();
     res.status(200).send(response);
@@ -10,6 +11,7 @@ const findUser = async (req, res) => {
 };
 
 const createUser = async (req, res) => {
+  // #swagger.tags = ['Users']
   try {
     const userModel = new UserSchema({ ...req.body });
     const response = await userModel.save();
@@ -20,6 +22,7 @@ const createUser = async (req, res) => {
 };
 
 const editUser = async (req, res) => {
+  // #swagger.tags = ['Users']
   try {
     const response = await UserSchema.findByIdAndUpdate({
       _id: req.params.id,
@@ -31,6 +34,7 @@ const editUser = async (req, res) => {
 };
 
 const deteleUser = async (req, res) => {
+  // #swagger.tags = ['Users']
   try {
     const response = await UserSchema.findByIdAndDelete(req.params.id);
     res.status(200).send(response);

@@ -3,8 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./app.js",
-    "dev": "nodemon ./app.js"
+    "start": "node ./src/config/docs.js && node ./app.js",
+    "dev": "node ./src/config/docs.js && nodemon ./app.js",
+    "swagger": "node ./src/config/docs.js"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -15,6 +16,7 @@
     "jade": "^1.9.2",
     "mongoose": "^8.0.3",
     "morgan": "~1.9.1",
+    "swagger-autogen": "^2.23.7",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.0"
   },

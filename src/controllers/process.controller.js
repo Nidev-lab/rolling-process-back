@@ -1,6 +1,7 @@
 const ProcessDetail = require('../models/processs.schema');
 
 const findProcessDetail = async (req, res) => {
+  // #swagger.tags = ['Process']
   try {
     const response = await ProcessDetail.find();
     res.status(200).send(response);
@@ -10,6 +11,7 @@ const findProcessDetail = async (req, res) => {
 };
 
 const postProcessDetail = async (req, res) => {
+  // #swagger.tags = ['Process']
   try {
     const newProcess = new ProcessDetail({
       processId: req.body.processId,
