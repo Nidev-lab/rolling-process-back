@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./src/config/docs.js && node ./app.js",
-    "dev": "node ./src/config/docs.js && nodemon ./app.js",
+    "start": "node ./app.js",
+    "dev": "nodemon ./app.js",
     "swagger": "node ./src/config/docs.js"
   },
   "dependencies": {
