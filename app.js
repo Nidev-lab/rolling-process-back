@@ -36,8 +36,9 @@ app.use('/docs', swaggerUI.serve, swaggerUI.setup(swaggerSpec));
 app.use("/v1/process-detail", require('./src/routes/processDetail.routes'));
 app.use("/v1/process-list", require('./src/routes/processList.routes'));
 app.use('/v1/user', require('./src/routes/user.routes'));
+app.use('/v1/login', require('./src/routes/login.routes')),
 
-app.use('/*', (req, res) => res.send({ error: { message: 'Not found', stateCode: 404 } }));
+  app.use('/*', (req, res) => res.send({ error: { message: 'Not found', stateCode: 404 } }));
 
 // Server
 app.listen(port, () => console.log('Server running in port', port));
