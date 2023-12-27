@@ -2,8 +2,8 @@ const bcrypt = require('bcrypt');
 const User = require('../models/user.schema');
 
 const login = async (req, res) => {
+  // #swagger.tags = ['Auth']
   const { email, password } = req.body;
-
   if (!email || !password) {
     res.status(400).json({ error: 'Debe llenar todos los campos.' });
   }

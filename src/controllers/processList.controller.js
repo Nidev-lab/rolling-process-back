@@ -1,6 +1,7 @@
 const ProcessList = require('../models/processList.schema');
 
 const postProcessList = async (req, res) => {
+  // #swagger.tags = ['Process Details']
   try {
     const newProcess = new ProcessList({
       processId: req.body.processId,
@@ -11,7 +12,6 @@ const postProcessList = async (req, res) => {
     });
 
     await newProcess.save();
-
     res.status(201).json(newProcess);
   } catch (error) {
     res.status(400).json({ message: error.message });
@@ -19,11 +19,12 @@ const postProcessList = async (req, res) => {
 };
 
 const getProcessList = async (req, res) => {
+  // #swagger.tags = ['Process Details']
   try {
     const processes = await ProcessList.find({});
-    return res.status(200).json(processes);
+    res.status(200).json(processes);
   } catch (error) {
-    return res.status(500).json('Server error');
+    res.status(500).json('Server error');
   }
 };
 

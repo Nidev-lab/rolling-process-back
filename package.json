@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node ./app.js",
-    "dev": "nodemon ./app.js"
+    "dev": "nodemon ./app.js",
+    "swagger": "node ./src/config/docs.js"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
@@ -17,6 +18,7 @@
     "jade": "^1.9.2",
     "mongoose": "^8.0.3",
     "morgan": "~1.9.1",
+    "swagger-autogen": "^2.23.7",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.0"
   },
