@@ -1,4 +1,3 @@
-/* eslint-disable import/order, no-console, import/no-extraneous-dependencies */
 const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
 const express = require('express');
@@ -8,8 +7,8 @@ const path = require('path');
 
 require('dotenv').config();
 
-const swaggerDocument = require('./src/config/config.json');
 const swaggerUI = require('swagger-ui-express');
+const swaggerDocument = require('./src/config/config.json');
 
 // Database
 mongoose.connect(process.env.DB_MONGO);
