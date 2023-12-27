@@ -32,6 +32,7 @@ app.use(cookieParser());
 app.use('/', require('./src/routes/processDetail.routes'));
 app.use('/', require('./src/routes/processList.routes'));
 app.use('/', require('./src/routes/user.routes'));
+app.use('/', require('./src/routes/login.routes'));
 
 app.use('/docs', swaggerUI.serve, swaggerUI.setup(swaggerDocument));
 app.use('/*', (req, res) => res.send({ error: { message: 'Not found', stateCode: 404 } }));

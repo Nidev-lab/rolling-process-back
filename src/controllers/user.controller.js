@@ -1,3 +1,4 @@
+const bcrypt = require('bcrypt');
 const UserSchema = require('../models/user.schema');
 
 const findUser = async (req, res) => {
@@ -12,10 +13,30 @@ const findUser = async (req, res) => {
 
 const createUser = async (req, res) => {
   // #swagger.tags = ['Users']
+  const {
+    rol,
+    email,
+    password,
+    lastName,
+    firstName,
+  } = req.body;
   try {
-    const userModel = new UserSchema({ ...req.body });
-    const response = await userModel.save();
-    res.status(201).send(response);
+    const validate = await UserSchema.findOne({ email });
+    if (validate) {
+      res.status(400).send('Email en uso');
+    }
+    const salt = await bcrypt.genSalt(10);
+    const Encrypt = await bcrypt.hash(password, salt);
+    const user = new UserSchema({
+      firstName,
+      lastName,
+      rol,
+      email,
+      password: Encrypt,
+      createAt: Date.now(),
+    });
+    await user.save();
+    res.status(201).send(user);
   } catch (error) {
     res.status(400).send({ message: error.message });
   }
@@ -44,5 +65,8 @@ const deteleUser = async (req, res) => {
 };
 
 module.exports = {
-  createUser, findUser, editUser, deteleUser,
+  deteleUser,
+  createUser,
+  findUser,
+  editUser,
 };

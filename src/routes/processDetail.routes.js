@@ -1,11 +1,11 @@
-const express = require('express');
+const router = require('express').Router();
 const controller = require('../controllers/processDetail.controller');
 
 const path = '/v1/process-detail';
-const router = express.Router();
 
-router.post(`${path}/create`, controller.postProcessDetail);
-router.get(`${path}/findAll`, controller.getAllProcessDetail);
-router.get(`${path}/:id`, controller.getProcessDetail);
+router
+  .get(`${path}/:id`, controller.getProcessDetail)
+  .post(`${path}/create`, controller.postProcessDetail)
+  .get(`${path}/findAll`, controller.getAllProcessDetail);
 
 module.exports = router;

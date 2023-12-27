@@ -1,8 +1,7 @@
-const express = require('express');
+const router = require('express').Router();
 const controller = require('../controllers/user.controller');
 
 const path = '/v1/user';
-const router = express.Router();
 
 router
   .get(`${path}/findAll`, controller.findUser)
