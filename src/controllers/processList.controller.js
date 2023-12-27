@@ -1,4 +1,4 @@
-const ProcessList = require("../../src/models/processList.schema");
+const ProcessList = require('../models/processList.schema');
 
 const postProcessList = async (req, res) => {
   try {
@@ -23,7 +23,7 @@ const getProcessList = async (req, res) => {
     const processes = await ProcessList.find({});
     return res.status(200).json(processes);
   } catch (error) {
-    return res.status(500).json("Server error");
+    return res.status(500).json('Server error');
   }
 };
 

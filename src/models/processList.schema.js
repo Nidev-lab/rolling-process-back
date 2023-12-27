@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const processListSchema = new mongoose.Schema({
   processId: {
@@ -30,6 +30,6 @@ const processListSchema = new mongoose.Schema({
   },
 });
 
-const ProcessList = mongoose.model("ProcessList", processListSchema);
+const ProcessList = mongoose.model('ProcessList', processListSchema);
 
 module.exports = ProcessList;
