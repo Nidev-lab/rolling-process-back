@@ -1,5 +1,5 @@
+const bcrypt = require('bcrypt');
 const UserSchema = require('../models/user.schema');
-const bcrypt = require('bcrypt')
 
 const findUser = async (req, res) => {
   try {
@@ -11,17 +11,17 @@ const findUser = async (req, res) => {
 };
 
 const createUser = async (req, res) => {
-  const { email, password } = req.body
+  const { username, password } = req.body;
   try {
-    const validate = await UserSchema.findOne({ email })
+    const validate = await UserSchema.findOne({ username });
     if (validate) {
-      res.status(400).send('Email en uso')
+      res.status(400).send('Email en uso');
     }
-    const salt = await bcrypt.genSalt(10)
-    const Encrypt = await bcrypt.hash(password, salt)
-    const user = new UserSchema({ ...req.body, password: Encrypt, createAt: Date.now() })
-    await user.save()
-    res.status(201).send();
+    const salt = await bcrypt.genSalt(10);
+    const Encrypt = await bcrypt.hash(password, salt);
+    const user = new UserSchema({ ...req.body, password: Encrypt, createAt: Date.now() });
+    await user.save();
+    res.status(201).send(user);
   } catch (error) {
     res.status(400).send({ message: error.message });
   }

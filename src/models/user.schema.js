@@ -4,12 +4,12 @@ const userSchema = new mongoose.Schema({
   firstName: {
     type: String,
     required: true,
-    maxlength: 30
+    maxlength: 30,
   },
   lastName: {
     type: String,
     required: true,
-    maxlength: 30
+    maxlength: 30,
   },
   rol: {
     type: Number,
@@ -19,17 +19,17 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
     unique: true,
-    maxlength: 30
+    maxlength: 30,
   },
   password: {
     type: String,
     required: true,
-    maxlength: 80
+    maxlength: 80,
   },
   createAdd: {
     type: Date,
-    default: Date.now()
-  }
+    default: Date.now(),
+  },
 });
 
 module.exports = mongoose.model('users', userSchema);

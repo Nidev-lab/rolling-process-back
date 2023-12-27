@@ -1,4 +1,4 @@
-const ProcessDetail = require("../../src/models/processDetail.schema");
+const ProcessDetail = require('../models/processDetail.schema');
 
 const postProcessDetail = async (req, res) => {
   try {
@@ -20,11 +20,11 @@ const getAllProcessDetail = async (req, res) => {
   try {
     const processes = await ProcessDetail.find({});
     if (!processes) {
-      return res.status(404).json({ message: "Process not found" });
+      res.status(404).json({ message: 'Process not found' });
     }
-    return res.status(200).json(processes);
+    res.status(200).json(processes);
   } catch (error) {
-    res.status(500).json("Server error");
+    res.status(500).json('Server error');
   }
 };
 
@@ -34,11 +34,11 @@ const getProcessDetail = async (req, res) => {
       processId: req.params.id,
     });
     if (!process) {
-      return res.status(404).json({ message: "Process not found" });
+      res.status(404).json({ message: 'Process not found' });
     }
-    return res.status(200).json(process);
+    res.status(200).json(process);
   } catch (error) {
-    res.status(500).json("Server error");
+    res.status(500).json('Server error');
   }
 };
 

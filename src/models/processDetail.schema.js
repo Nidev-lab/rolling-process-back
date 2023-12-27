@@ -1,10 +1,10 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const detailSchema = new mongoose.Schema({
   type: {
     type: String,
     required: true,
-    enum: ["title", "subtitle", "message", "link"],
+    enum: ['title', 'subtitle', 'message', 'link'],
   },
   value: {
     type: String,
@@ -16,7 +16,7 @@ const answersSchema = new mongoose.Schema({
   type: {
     type: String,
     required: true,
-    enum: ["answer"],
+    enum: ['answer'],
   },
   value: {
     type: String,
@@ -38,6 +38,6 @@ const processDetailSchema = new mongoose.Schema({
   details: [detailSchema],
 });
 
-const ProcessDetail = mongoose.model("ProcessDetail", processDetailSchema);
+const ProcessDetail = mongoose.model('ProcessDetail', processDetailSchema);
 
 module.exports = ProcessDetail;

@@ -1,5 +1,3 @@
-/* eslint-disable no-console, import/no-extraneous-dependencies */
-
 const cookieParser = require('cookie-parser');
 const swaggerUI = require('swagger-ui-express');
 const mongoose = require('mongoose');
@@ -18,8 +16,8 @@ mongoose.connect(process.env.DB_MONGO);
 const app = express();
 const port = process.env.PORT || 8080;
 
-app.set("views", path.join(__dirname, "views"));
-app.set("view engine", "jade");
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'jade');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -33,12 +31,12 @@ app.use(cookieParser());
 // Routes
 app.use('/docs', swaggerUI.serve, swaggerUI.setup(swaggerSpec));
 
-app.use("/v1/process-detail", require('./src/routes/processDetail.routes'));
-app.use("/v1/process-list", require('./src/routes/processList.routes'));
+app.use('/v1/process-detail', require('./src/routes/processDetail.routes'));
+app.use('/v1/process-list', require('./src/routes/processList.routes'));
 app.use('/v1/user', require('./src/routes/user.routes'));
-app.use('/v1/login', require('./src/routes/login.routes')),
+app.use('/v1/login', require('./src/routes/login.routes'));
 
-  app.use('/*', (req, res) => res.send({ error: { message: 'Not found', stateCode: 404 } }));
+app.use('/*', (req, res) => res.send({ error: { message: 'Not found', stateCode: 404 } }));
 
 // Server
 app.listen(port, () => console.log('Server running in port', port));

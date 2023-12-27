@@ -1,9 +1,9 @@
-const express = require("express");
+const express = require('express');
 const {
   postProcessDetail,
   getAllProcessDetail,
   getProcessDetail,
-} = require("../../src/controllers/processDetail.controller");
+} = require('../controllers/processDetail.controller');
 
 const router = express.Router();
 
@@ -86,8 +86,8 @@ const router = express.Router();
  *        description: Some server error
 */
 
-router.post("/create", postProcessDetail);
-router.get("/findAll", getAllProcessDetail);
-router.get("/:id", getProcessDetail);
+router.post('/create', postProcessDetail);
+router.get('/findAll', getAllProcessDetail);
+router.get('/:id', getProcessDetail);
 
 module.exports = router;
