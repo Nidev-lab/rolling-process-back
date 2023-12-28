@@ -6,7 +6,7 @@ const doc = {
     title: 'Rolling-Process V1 Docs',
     description: 'This is docs for repeet test with endpoint and reference for front',
   },
-  host: '127.0.0.1:8080',
+  host: 'rolling-process-back-production-977c.up.railway.app',
   tags: [
     {
       name: 'Auth',
