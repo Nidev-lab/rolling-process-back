@@ -5,7 +5,6 @@
     "title": "Rolling-Process V1 Docs",
     "description": "This is docs for repeet test with endpoint and reference for front"
   },
-  "host": "rolling-process-back-production-977c.up.railway.app",
   "basePath": "/",
   "tags": [
     {
@@ -19,7 +18,8 @@
     }
   ],
   "schemes": [
-    "http"
+    "http",
+    "https"
   ],
   "paths": {
     "/v1/login": {
@@ -58,7 +58,7 @@
         }
       }
     },
-    "/v1/process-detail/{id}": {
+    "/v1/processDetail/{id}": {
       "get": {
         "tags": [
           "Process Details"
@@ -85,7 +85,7 @@
         }
       }
     },
-    "/v1/process-detail/create": {
+    "/v1/processDetail/create": {
       "post": {
         "tags": [
           "Process Details"
@@ -121,7 +121,7 @@
         }
       }
     },
-    "/v1/process-detail/findAll": {
+    "/v1/processDetail/findAll": {
       "get": {
         "tags": [
           "Process Details"
@@ -140,7 +140,7 @@
         }
       }
     },
-    "/v1/process-list/findAll": {
+    "/v1/processList/findAll": {
       "get": {
         "tags": [
           "Process Details"
@@ -156,7 +156,7 @@
         }
       }
     },
-    "/v1/process-list/create": {
+    "/v1/processList/create": {
       "post": {
         "tags": [
           "Process Details"

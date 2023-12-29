@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const controller = require('../controllers/processDetail.controller');
 
-const path = '/v1/process-detail';
+const path = '/v1/processDetail';
 
 router
   .get(`${path}/:id`, controller.getProcessDetail)

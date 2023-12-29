@@ -8,11 +8,6 @@ const options = {
       version: '1.0.0',
       description: 'This is docs for repeet test with endpoint and reference for front',
     },
-    servers: [
-      {
-        url: 'http://localhost:8080',
-      },
-    ],
   },
   apis: ['./src/routes/*.js'],
 };
