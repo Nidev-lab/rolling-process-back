@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const controller = require('../controllers/processList.controller');
 
-const path = '/v1/process-list';
+const path = '/v1/processList';
 
 router
   .get(`${path}/findAll`, controller.getProcessList)
