@@ -10,10 +10,10 @@ const doc = {
   },
   tags: [
     {
-      name: 'Auth',
+      name: 'Users',
     },
     {
-      name: 'Users',
+      name: 'Auth',
     },
     {
       name: 'Process Details',
