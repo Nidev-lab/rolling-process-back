@@ -24,7 +24,7 @@ const getProcessList = async (req, res) => {
     const processes = await ProcessList.find({});
     res.status(200).json(processes);
   } catch (error) {
-    res.status(500).json('Server error');
+    res.status(400).json({ error: error.message });
   }
 };
 

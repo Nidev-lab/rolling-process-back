@@ -22,11 +22,11 @@ const getAllProcessDetail = async (req, res) => {
   try {
     const processes = await ProcessDetail.find({});
     if (!processes) {
-      res.status(404).json({ message: 'Process not found' });
+      res.status(400).json({ message: 'Process not found' });
     }
     res.status(200).json(processes);
   } catch (error) {
-    res.status(500).json('Server error');
+    res.status(400).json({ error: error.message });
   }
 };
 
@@ -37,11 +37,11 @@ const getProcessDetail = async (req, res) => {
       processId: req.params.id,
     });
     if (!process) {
-      res.status(404).json({ message: 'Process not found' });
+      res.status(400).json({ message: 'Process not found' });
     }
     res.status(200).json(process);
   } catch (error) {
-    res.status(500).json('Server error');
+    res.status(400).json({ error: error.message });
   }
 };
 
