@@ -33,17 +33,14 @@ const sendEmailRecoverPassword = async (req, res) => {
       throw new Error(`Error. No existe usuario registrado con este nombre de usuario ${email}`);
     }
     const transporter = nodemailer.createTransport({
-      host: 'smtp.gmail.com',
-      port: 465,
+      host: process.env.NODEMAILER_HOST,
+      port: process.env.NODEMAILER_PORT,
       secure: true,
-      auth: {
-        user: process.env.NODEMAILER_EMAIL,
-        pass: process.env.NODEMAILER_PASS,
-      },
+      auth: { user: process.env.NODEMAILER_EMAIL, pass: process.env.NODEMAILER_PASS },
     });
     await transporter.sendMail({
-      from: 'Rolling Process',
       to: email,
+      from: 'Rolling Process',
       subject: 'Recuperar contraseña',
       text: `Ingrese aqui para recuperar contraseña http://localhost:3000/recoverPassword/${btoa({ email })}`,
     });
