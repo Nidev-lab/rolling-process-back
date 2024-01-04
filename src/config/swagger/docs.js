@@ -25,6 +25,6 @@ const doc = {
 };
 
 const output = './config.json';
-const routes = ['../routes/*.js'];
+const routes = ['../../routes/*.js'];
 
 swaggerAutogen(output, routes, doc);

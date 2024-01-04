@@ -8,7 +8,7 @@ const path = require('path');
 require('dotenv').config();
 
 const swaggerUI = require('swagger-ui-express');
-const swaggerDocument = require('./src/config/config.json');
+const swaggerDocument = require('./src/config/swagger/config.json');
 
 // Database
 mongoose.connect(process.env.DB_MONGO);
