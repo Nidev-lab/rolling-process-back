@@ -1,7 +1,7 @@
 /* eslint-disable no-underscore-dangle */
 const bcrypt = require('bcrypt');
-const nodemailer = require('nodemailer');
 const UserSchema = require('../models/user.schema');
+const { sendEmails } = require('../config/nodemailer/sendEmails');
 
 const login = async (req, res) => {
   // #swagger.tags = ['Auth']
@@ -32,19 +32,11 @@ const sendEmailRecoverPassword = async (req, res) => {
     if (!user) {
       throw new Error(`Error. No existe usuario registrado con este nombre de usuario ${email}`);
     }
-    const transporter = nodemailer.createTransport({
-      host: process.env.NODEMAILER_HOST,
-      port: process.env.NODEMAILER_PORT,
-      secure: true,
-      auth: { user: process.env.NODEMAILER_EMAIL, pass: process.env.NODEMAILER_PASS },
+    const response = await sendEmails({
+      email,
+      title: 'Recuperar la contraseña!',
     });
-    await transporter.sendMail({
-      to: email,
-      from: 'Rolling Process',
-      subject: 'Recuperar contraseña',
-      text: `Ingrese aqui para recuperar contraseña http://localhost:3000/recoverPassword/${btoa({ email })}`,
-    });
-    res.status(200).send({ response: `email enviado a ${email}, revise su cuenta!` });
+    res.status(200).send(response);
   } catch (error) {
     res.status(400).json({ error: error.message });
   }

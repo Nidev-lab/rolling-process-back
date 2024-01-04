@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node ./app.js",
     "dev": "nodemon ./app.js",
-    "swagger": "node ./src/config/docs.js"
+    "swagger": "node ./src/config/swagger/docs.js"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
